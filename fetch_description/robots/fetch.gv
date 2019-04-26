@@ -1,0 +1,80 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"estop_link" [label="estop_link"];
+"l_wheel_link" [label="l_wheel_link"];
+"laser_link" [label="laser_link"];
+"r_wheel_link" [label="r_wheel_link"];
+"torso_fixed_link" [label="torso_fixed_link"];
+"torso_lift_link" [label="torso_lift_link"];
+"bellows_link" [label="bellows_link"];
+"bellows_link2" [label="bellows_link2"];
+"head_pan_link" [label="head_pan_link"];
+"head_tilt_link" [label="head_tilt_link"];
+"head_camera_link" [label="head_camera_link"];
+"head_camera_depth_frame" [label="head_camera_depth_frame"];
+"head_camera_depth_optical_frame" [label="head_camera_depth_optical_frame"];
+"head_camera_rgb_frame" [label="head_camera_rgb_frame"];
+"head_camera_rgb_optical_frame" [label="head_camera_rgb_optical_frame"];
+"shoulder_pan_link" [label="shoulder_pan_link"];
+"shoulder_lift_link" [label="shoulder_lift_link"];
+"upperarm_roll_link" [label="upperarm_roll_link"];
+"elbow_flex_link" [label="elbow_flex_link"];
+"forearm_roll_link" [label="forearm_roll_link"];
+"wrist_flex_link" [label="wrist_flex_link"];
+"wrist_roll_link" [label="wrist_roll_link"];
+"gripper_link" [label="gripper_link"];
+"l_gripper_finger_link" [label="l_gripper_finger_link"];
+"r_gripper_finger_link" [label="r_gripper_finger_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "estop_joint" [label="xyz: -0.12465 0.23892 0.31127 \nrpy: 1.5708 -0 0"]
+"estop_joint" -> "estop_link"
+"base_link" -> "l_wheel_joint" [label="xyz: 0.0012914 0.18738 0.055325 \nrpy: -6.123e-17 0 0"]
+"l_wheel_joint" -> "l_wheel_link"
+"base_link" -> "laser_joint" [label="xyz: 0.235 0 0.2878 \nrpy: -3.14159 -0 0"]
+"laser_joint" -> "laser_link"
+"base_link" -> "r_wheel_joint" [label="xyz: 0.0012914 -0.18738 0.055325 \nrpy: -6.123e-17 0 0"]
+"r_wheel_joint" -> "r_wheel_link"
+"base_link" -> "torso_fixed_joint" [label="xyz: -0.086875 0 0.377425 \nrpy: -6.12303e-17 0 0"]
+"torso_fixed_joint" -> "torso_fixed_link"
+"base_link" -> "torso_lift_joint" [label="xyz: -0.086875 0 0.37743 \nrpy: -6.123e-17 0 0"]
+"torso_lift_joint" -> "torso_lift_link"
+"torso_lift_link" -> "bellows_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"bellows_joint" -> "bellows_link"
+"torso_lift_link" -> "bellows_joint2" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"bellows_joint2" -> "bellows_link2"
+"torso_lift_link" -> "head_pan_joint" [label="xyz: 0.053125 0 0.603001 \nrpy: 0 -0 0"]
+"head_pan_joint" -> "head_pan_link"
+"head_pan_link" -> "head_tilt_joint" [label="xyz: 0.14253 0 0.057999 \nrpy: 0 -0 0"]
+"head_tilt_joint" -> "head_tilt_link"
+"head_tilt_link" -> "head_camera_joint" [label="xyz: 0.055 0 0.0225 \nrpy: 0 -0 0"]
+"head_camera_joint" -> "head_camera_link"
+"head_camera_link" -> "head_camera_depth_joint" [label="xyz: 0 0.045 0 \nrpy: 0 -0 0"]
+"head_camera_depth_joint" -> "head_camera_depth_frame"
+"head_camera_depth_frame" -> "head_camera_depth_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"head_camera_depth_optical_joint" -> "head_camera_depth_optical_frame"
+"head_camera_link" -> "head_camera_rgb_joint" [label="xyz: 0 0.02 0 \nrpy: 0 -0 0"]
+"head_camera_rgb_joint" -> "head_camera_rgb_frame"
+"head_camera_rgb_frame" -> "head_camera_rgb_optical_joint" [label="xyz: 0 0 0 \nrpy: -1.5708 -5.55112e-17 -1.5708"]
+"head_camera_rgb_optical_joint" -> "head_camera_rgb_optical_frame"
+"torso_lift_link" -> "shoulder_pan_joint" [label="xyz: 0.119525 0 0.34858 \nrpy: 0 -0 0"]
+"shoulder_pan_joint" -> "shoulder_pan_link"
+"shoulder_pan_link" -> "shoulder_lift_joint" [label="xyz: 0.117 0 0.06 \nrpy: 0 -0 0"]
+"shoulder_lift_joint" -> "shoulder_lift_link"
+"shoulder_lift_link" -> "upperarm_roll_joint" [label="xyz: 0.219 0 0 \nrpy: 0 -0 0"]
+"upperarm_roll_joint" -> "upperarm_roll_link"
+"upperarm_roll_link" -> "elbow_flex_joint" [label="xyz: 0.133 0 0 \nrpy: 0 -0 0"]
+"elbow_flex_joint" -> "elbow_flex_link"
+"elbow_flex_link" -> "forearm_roll_joint" [label="xyz: 0.197 0 0 \nrpy: 0 -0 0"]
+"forearm_roll_joint" -> "forearm_roll_link"
+"forearm_roll_link" -> "wrist_flex_joint" [label="xyz: 0.1245 0 0 \nrpy: 0 -0 0"]
+"wrist_flex_joint" -> "wrist_flex_link"
+"wrist_flex_link" -> "wrist_roll_joint" [label="xyz: 0.1385 0 0 \nrpy: 0 -0 0"]
+"wrist_roll_joint" -> "wrist_roll_link"
+"wrist_roll_link" -> "gripper_axis" [label="xyz: 0.16645 0 0 \nrpy: 0 -0 0"]
+"gripper_axis" -> "gripper_link"
+"gripper_link" -> "l_gripper_finger_joint" [label="xyz: 0 -0.015425 0 \nrpy: 0 -0 0"]
+"l_gripper_finger_joint" -> "l_gripper_finger_link"
+"gripper_link" -> "r_gripper_finger_joint" [label="xyz: 0 0.015425 0 \nrpy: 0 -0 0"]
+"r_gripper_finger_joint" -> "r_gripper_finger_link"
+}
